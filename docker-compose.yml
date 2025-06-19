@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace:cached
+      - node_modules_client:/workspace/client/node_modules
+      - node_modules_server:/workspace/server/node_modules
+    command: sleep infinity
+    ports:
+      - "3000:3000"
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    working_dir: /workspace
+
+volumes:
+  node_modules_client:
+  node_modules_server:

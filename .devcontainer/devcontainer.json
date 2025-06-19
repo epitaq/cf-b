@@ -1,0 +1,35 @@
+{
+  "name": "FestMap Development",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json",
+        "ms-vscode.vscode-eslint",
+        "ms-vscode.vscode-react-refactor",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "RooVeterinaryInc.roo-cline"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        }
+      }
+    }
+  },
+  "forwardPorts": [
+    3000,
+    5000
+  ],
+  "postCreateCommand": "cd client && npm install && cd ../server && npm install",
+  "remoteUser": "root"
+}
